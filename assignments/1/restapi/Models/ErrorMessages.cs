@@ -20,4 +20,11 @@ namespace restapi.Models
 
         public string Message { get => "No state transition of requested type present in timecard"; }
     }
+    
+    public class PermissionsError
+    {
+        public int ErrorCode { get => 103; }
+        
+        public string Message { get => "State transition not allowed."; }
+    }
 }

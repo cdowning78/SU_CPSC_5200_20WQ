@@ -20,7 +20,7 @@ namespace restapi.Models
             Transitions = new List<Transition>();
         }
 
-        public int Employee { get; set; }
+        public int Employee { get; /*set;*/ }
 
         public TimecardStatus Status
         {
@@ -90,6 +90,31 @@ namespace restapi.Models
                         Reference = $"/timesheets/{UniqueIdentifier}/lines"
                     });
 
+                    // 000
+                    links.Add(new ActionLink()
+                    {
+                        Method = Method.Delete,
+                        Type = ContentTypes.Deletion,
+                        Relationship = ActionRelationship.Delete,
+                        Reference = $"/timesheets/{UniqueIdentifier}/deletion"
+                    });
+
+                    links.Add(new ActionLink()
+                    {
+                        Method = Method.Post,
+                        Type = ContentTypes.TimesheetLine,
+                        Relationship = ActionRelationship.RecordLine,
+                        Reference = $"/timesheets/{UniqueIdentifier}/lines"
+                    });
+
+                    links.Add(new ActionLink()
+                    {
+                        Method = Method.Post,
+                        Type = ContentTypes.TimesheetLine,
+                        Relationship = ActionRelationship.RecordLine,
+                        Reference = $"/timesheets/{UniqueIdentifier}/lines"
+                    });
+
                     break;
 
                 case TimecardStatus.Submitted:
@@ -124,7 +149,13 @@ namespace restapi.Models
                     break;
 
                 case TimecardStatus.Cancelled:
-                    // terminal state, nothing possible here
+                    links.Add(new ActionLink()
+                    {
+                        Method = Method.Delete,
+                        Type = ContentTypes.Deletion,
+                        Relationship = ActionRelationship.Delete,
+                        Reference = $"/timesheets/{UniqueIdentifier}/deletion"
+                    });
                     break;
             }
 
@@ -174,6 +205,39 @@ namespace restapi.Models
 
             Lines.Add(annotatedLine);
 
+            return annotatedLine;
+        }
+
+        public TimecardLine UpdateLine(DocumentLine documentLine, Guid line_id)
+        {
+            var annotatedLine = new TimecardLine(documentLine);
+            foreach(var line in Lines) 
+            {
+                if(line.UniqueIdentifier == line_id) 
+                {                       
+                    line.Update(documentLine);
+                    //return annotatedLine;
+                }
+            }   
+
+            // no line found with that Guid
+            return annotatedLine;
+        }
+
+        public TimecardLine ReplaceLine(DocumentLine documentLine, Guid line_id) 
+        {
+            var annotatedLine = new TimecardLine(documentLine);
+            foreach(var line in Lines) 
+            {
+                if(line.UniqueIdentifier == line_id) 
+                {                       
+                    Lines.Remove(line);
+                    Lines.Add(annotatedLine);
+                    //return annotatedLine;
+                }
+            }    
+
+            // no line found with that Guid
             return annotatedLine;
         }
 

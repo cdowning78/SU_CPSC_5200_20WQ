@@ -1,0 +1,16 @@
+/Users/Chris/restapi/bin/Debug/netcoreapp2.2/appsettings.Development.json
+/Users/Chris/restapi/bin/Debug/netcoreapp2.2/appsettings.json
+/Users/Chris/restapi/bin/Debug/netcoreapp2.2/Properties/launchSettings.json
+/Users/Chris/restapi/bin/Debug/netcoreapp2.2/restapi.deps.json
+/Users/Chris/restapi/bin/Debug/netcoreapp2.2/restapi.runtimeconfig.json
+/Users/Chris/restapi/bin/Debug/netcoreapp2.2/restapi.runtimeconfig.dev.json
+/Users/Chris/restapi/bin/Debug/netcoreapp2.2/restapi.dll
+/Users/Chris/restapi/bin/Debug/netcoreapp2.2/restapi.pdb
+/Users/Chris/restapi/obj/Debug/netcoreapp2.2/restapi.csprojAssemblyReference.cache
+/Users/Chris/restapi/obj/Debug/netcoreapp2.2/restapi.RazorAssemblyInfo.cache
+/Users/Chris/restapi/obj/Debug/netcoreapp2.2/restapi.RazorAssemblyInfo.cs
+/Users/Chris/restapi/obj/Debug/netcoreapp2.2/restapi.AssemblyInfoInputs.cache
+/Users/Chris/restapi/obj/Debug/netcoreapp2.2/restapi.AssemblyInfo.cs
+/Users/Chris/restapi/obj/Debug/netcoreapp2.2/restapi.RazorTargetAssemblyInfo.cache
+/Users/Chris/restapi/obj/Debug/netcoreapp2.2/restapi.dll
+/Users/Chris/restapi/obj/Debug/netcoreapp2.2/restapi.pdb
